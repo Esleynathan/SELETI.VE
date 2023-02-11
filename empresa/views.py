@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Tecnologias, Empresa
+from .models import Tecnologias, Empresa, Vagas
 from django.shortcuts import redirect
 from django.contrib.messages import constants
 from django.contrib import messages
@@ -53,4 +53,7 @@ def excluir_empresa(request, id):
     empresa = Empresa.objects.get(id=id)
     empresa.delete()
     messages.add_message(request, constants.SUCCESS, 'Empresa excluída com sucesso')
-    return redirect('/home/empresas')    
+    return redirect('/home/empresas')  
+
+def qtd_vagas(self):
+        return Vagas.objects.filter(empresa__id=self.id).count()  

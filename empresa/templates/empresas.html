@@ -19,7 +19,7 @@
                     {% endfor %}
                 {% endif %}
                 <h2 class="titulo">Gerenciar empresas</h2>
-                <a class="btn-nova-empresa">Nova empresa</a>
+                <a href="{% url 'nova_empresa' %}" class="btn-nova-empresa">Nova empresa</a>
             </div>
             <div class="borda-box"></div>
             <div class="body-box">
@@ -65,7 +65,12 @@
                                 </select>
                             </td>
                             <td>
-                                Quantidade de vagas
+                            {% if empresa.qtd_vagas > 0 %}
+                                <img src="{% static 'empresa/img/flag_green.png' %}">
+                            {% else %}
+                                <img src="{% static 'empresa/img/flag_red.png' %}">
+                            {% endif %}
+                            &nbsp&nbsp&nbsp{{empresa.qtd_vagas}}
                             </td>
                             <td>
                                 <a class="btn-excluir" href="{% url 'excluir_empresa' empresa.id %}">Excluir empresa</a>
