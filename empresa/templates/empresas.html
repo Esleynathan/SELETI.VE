@@ -68,7 +68,7 @@
                                 Quantidade de vagas
                             </td>
                             <td>
-                                <a class="btn-excluir">Excluir empresa</a>
+                                <a class="btn-excluir" href="{% url 'excluir_empresa' empresa.id %}">Excluir empresa</a>
                             </td>
                         </tr>
                 {% endfor %}
