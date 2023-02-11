@@ -58,7 +58,16 @@
 
                 {% for empresa in empresas%}   
                         <tr {% if not forloop.counter|is_par %} class="tabela-linha" {% endif %}>
-                            <td>{{empresa.nome}}</td>
+                            
+                            <td>
+                            <a class="navbar-brand"  href="{% url 'excluir_empresa' empresa.id %}">
+                            {{empresa.nome}}
+
+                            </a>
+                            
+                            
+                            </td>
+
                             <td>{{empresa.endereco}}</td>
                             <td>
                                 <select class="form-select">       

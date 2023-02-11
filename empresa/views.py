@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from .models import Tecnologias, Empresa, Vagas
 from django.shortcuts import redirect
@@ -67,3 +67,7 @@ def excluir_empresa(request, id):
 
 def qtd_vagas(self):
         return Vagas.objects.filter(empresa__id=self.id).count()  
+
+def empresa(request, id):
+    empresa_unica = get_object_or_404(Empresa, id=id)
+    return render(request, 'empresa.html', {'empresa': empresa_unica})
