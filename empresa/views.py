@@ -45,9 +45,19 @@ def nova_empresa(request):
         messages.add_message(request, constants.SUCCESS, 'Empresa cadastrada com sucesso')
         return redirect('/home/empresas')
 
-def empresas(request):
+def empresas(request):    
+    technologias_filtrar = request.GET.get('tecnologias')
+    nome_filtrar = request.GET.get('nome')
     empresas = Empresa.objects.all()
-    return render(request, 'empresas.html', {'empresas': empresas})
+
+    if technologias_filtrar:
+        empresas = empresas.filter(tecnologias = technologias_filtrar)
+    
+    if nome_filtrar:
+        empresas = empresas.filter(nome__icontains = nome_filtrar)
+
+    tecnologias = Tecnologias.objects.all()
+    return render(request, 'empresas.html', {'empresas': empresas, 'tecnologias': tecnologias})
 
 def excluir_empresa(request, id):
     empresa = Empresa.objects.get(id=id)

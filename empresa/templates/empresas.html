@@ -24,7 +24,7 @@
             <div class="borda-box"></div>
             <div class="body-box">
             
-                <form>
+                <form action="{% url 'empresas' %}" method="GET">
                 <div class="row">
                     
                         <div class="col-md-5">
@@ -32,8 +32,11 @@
                         </div>
 
                         <div class="col-md-4">
-                            <select class="form-select" name="tecnologias">
-                                <option value="">--------</option>
+                            <select class="form-select" aria-label="Default select example" name="tecnologias">
+                                <option value="">{{tech}}Todas</option>
+                                {% for tech in tecnologias%}                                
+                                <option value="{{tech.id}}">{{tech}}</option>
+                                {% endfor %}    
                             </select>
                         </div>
                     
