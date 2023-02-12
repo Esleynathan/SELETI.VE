@@ -74,7 +74,7 @@
 
                     <div class="box-vagas">
                         <div class="header-vagas">
-                            {{vaga.titulo}}
+                            <a class="navbar-brand" href="{% url 'vaga' vaga.id %}">{{vaga.titulo}}</a>
                         </div>
 
                         <div class="body-vagas">
