@@ -24,7 +24,7 @@
             <div class="borda-box"></div>
             <div class="body-box">
             
-                <form action="{% url 'empresas' %}" method="GET">
+                <form action="{% url 'empresas' %}" method="GET">{% csrf_token %}
                 <div class="row">
                     
                         <div class="col-md-5">
@@ -60,7 +60,7 @@
                         <tr {% if not forloop.counter|is_par %} class="tabela-linha" {% endif %}>
                             
                             <td>
-                            <a class="navbar-brand"  href="{% url 'excluir_empresa' empresa.id %}">
+                            <a class="navbar-brand"  href="{% url 'empresa_unica' empresa.id %}">
                             {{empresa.nome}}
 
                             </a>

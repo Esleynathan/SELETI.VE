@@ -68,6 +68,9 @@ def excluir_empresa(request, id):
 def qtd_vagas(self):
         return Vagas.objects.filter(empresa__id=self.id).count()  
 
-def empresa(request, id):
+def empresa(request, id):    
     empresa_unica = get_object_or_404(Empresa, id=id)
-    return render(request, 'empresa.html', {'empresa': empresa_unica})
+    empresas = Empresa.objects.all()
+    tecnologias = Tecnologias.objects.all()
+    vagas = Vagas.objects.filter(empresa_id=id)
+    return render(request, 'empresa.html', {'empresa': empresa_unica, 'tecnologias': tecnologias,'empresas': empresas, 'vagas': vagas})

@@ -1,11 +1,3 @@
-.titulo{
-    color: #7d2948;
-    font-size: 60px;
-}
-
-.paragrafo{
-    font-size: 25px;
-}
 
 .wrapper {
     margin-top: 3%;
@@ -82,4 +74,46 @@
     padding: 10px;
     border-radius: 10px;
     font-weight: bold;
+}
+
+.titulo{
+
+    color: #7D2948;
+    font-weight: bold;
+
+}
+
+.paragrafo{
+    font-size: 25px;
+}
+
+.btn-orange{
+
+    background-color: #ED8554;
+    color: white;
+}
+
+label{
+    font-weight: bold;
+}
+
+.box-vagas{
+
+    width: 400px;
+    margin-top: 60px;
+    background-color: #EDE6E6;
+}
+
+.header-vagas{
+    background-color: #7D2948;
+    padding: 15px;
+    color: white
+}
+
+.body-vagas{
+    padding: 15px;
+}
+
+.paragrafo-orange{
+    color: #ED8554;
 }
