@@ -33,7 +33,7 @@
                     <p>Lembre-se de realizar todas suas tarefas com antecedência</p>
 
 
-                    <form>
+                    <form action="{% url 'nova_tarefa' vaga.id %}" method="POST">{% csrf_token %}
                         <label>Título:</label>
                         <input name="titulo" type="text" class="form-control input-tarefa" placeholder="Digite o título da tarefa..."> 
                         <br>
